@@ -1,7 +1,9 @@
 # gc__gvmi_hash
 Summary: computes the hash of a gvmi image file
 
-The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the golem vm image (gvmi) but the key has been forgotten, or the Requestor has become uncertain that a key in question corresponds to the image at hand. Further, as it is not clearly documented or advertised which hashing algorithm is used by the Golem network, it provides a domain specific solution.
+The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the golem vm image (gvmi) but the key has been forgotten, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
+
+Further, as it is not clearly documented or advertised which hashing algorithm is used by the Golem network, it provides a domain specific solution.
 
 --Note: to understand what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
