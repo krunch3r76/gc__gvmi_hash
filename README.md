@@ -10,6 +10,13 @@ git clone https://github.com/krunch3r76/gc__gvmi_hash.git
 python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>
 ```
 
+Example:
+```
+(cracker-venv) krunch3r@crystalcavern:~/hash-cracker$ python3 gc__gvmi_hash/gc__gvmi_hash.py *.gvmi
+SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
+SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
+```
+
 Recommendations:
 Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path.
 
