@@ -1,4 +1,5 @@
 # gc__gvmi_hash
+Summary: computes the hash of a gvmi image file
 
 The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the vm (gvmi) image but the key has been forgotten, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
 
