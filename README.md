@@ -3,7 +3,7 @@ Summary: computes the hash of a gvmi image file.
 
 The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the golem vm image (gvmi) but the key has been lost, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
 
-Further, as it is not clearly documented or advertised which hashing algorithm is used by the Golem network, it provides a domain specific solution.
+Further, as it is not clearly documented or advertised which hashing algorithm the Golem network uses, it provides a domain specific solution.
 
 --Note: to understand what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
@@ -28,8 +28,9 @@ SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed26
 ```
 
 Recommendations:
-Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py. TODO: provide hints on adding community scripts into the Python venv instead.
+Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
 
+TODO: provide hints on adding community scripts into the Python venv instead.
 
 
 
