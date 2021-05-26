@@ -5,7 +5,7 @@ The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had 
 
 --Note: to understand what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
-While the hash algorithm is simply the sha3_224 hash of the image, this hashing function is not ubiquitously available from shells at the time of this writing -- with that said, it is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>`. At any rate, the problem is solved here without OpenSSL executables or any other such runtime dependency or library/module external to the Python Standard Library + OpenSSL libraries.
+While the hash algorithm is simply the sha3_224 hash of the image, this hashing function is not ubiquitously available from shells at the time of this writing -- with that said, it is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>`. At any rate, the problem is solved here without OpenSSL executables or any other such runtime dependency or library/module apart from the pre-requisite libraries for running yagna (Python Standard Library + OpenSSL libraries).
 
 Adapted from the source code in the Python package gvimkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
 
