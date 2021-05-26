@@ -31,6 +31,7 @@ def gc__gvmi_hash(filename: str): # gc for golem community
 
     except OSError:
         print(f"There was a problem attempting to read the image file: '{filename}'", file = sys.stderr);
+        
     return hash_hex
 
 
@@ -42,5 +43,4 @@ if __name__ == "__main__":
         print(f"Usage: {sys.argv[0]} <filename of gvmi image>")
         exit(1)
     thefilename=sys.argv[1]
-    test=io.StringIO()
     print(gc__gvmi_hash(thefilename))
