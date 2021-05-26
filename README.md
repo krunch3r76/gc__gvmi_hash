@@ -10,7 +10,7 @@ Further, as it is not clearly documented or advertised which hashing algorithm t
 While the hash algorithm is simply the sha3_224 hash of the image, this hashing function is not ubiquitously available from shells at the time of this writing -- that said, it is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>`. The problem is solved here without OpenSSL executables or any other such runtime dependency or library/module apart from the pre-requisite libraries for running yagna (Python Standard Library + OpenSSL libraries).
 
 Credits:
-Adapted from the source code in the Python package gvimkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
+Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
 
 
 
