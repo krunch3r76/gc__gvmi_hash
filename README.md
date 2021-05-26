@@ -2,7 +2,7 @@
 
 The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the vm (gvmi) image, and it had printed the hash to which the requestor.py script is keyed, and the key has been forgotten, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
 
---Note: to understand what problem this script solves, it is recommended the reader follow the Provider flash (Python) tutorial at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development.--
+--Note: to understand what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development.--
 
 While the hash is simply the sha3_224 hash of the image, this hashing function is not ubiquitously available from shells at the time of this writing -- with that said, it is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>`. At any rate, the problem is solved here without any such runtime dependency or library/module external to the Python Standard Library.
 
