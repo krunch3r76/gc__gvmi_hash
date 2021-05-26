@@ -1,6 +1,6 @@
 # gc__gvmi_hash
 
-The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the vm (gvmi) image, and it had printed the hash to which the requestor.py script is keyed, and the key has been forgotten, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
+The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the vm (gvmi) image but the key has been forgotten, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
 
 --Note: to understand what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development.--
 
