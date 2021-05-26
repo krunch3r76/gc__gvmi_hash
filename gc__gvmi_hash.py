@@ -43,4 +43,4 @@ if __name__ == "__main__":
         print(f"Usage: {sys.argv[0]} <filename of gvmi image>")
         exit(1)
     thefilename=sys.argv[1]
-    print(gc__gvmi_hash(thefilename))
+    print(thefilename + ':' + gc__gvmi_hash(thefilename))
