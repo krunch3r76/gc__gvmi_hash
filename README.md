@@ -7,7 +7,7 @@ The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had 
 
 While the hash is simply the sha3_224 hash of the image, this hashing function is not ubiquitously available from shells at the time of this writing -- with that said, it is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>`. At any rate, the problem is solved here without any such runtime dependency or library/module external to the Python Standard Library.
 
-The logic closely follows that from the python package gvmkit-build (which is installed normally via pip in the Python virtual environment) in the repo.py file (viz def upload_image). The code from which this has been adapted may be viewed in the tarbell via https://pypi.org/project/gvmkit-build/#files.
+Adapted from gvimkit-build source code, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
 
 
 
