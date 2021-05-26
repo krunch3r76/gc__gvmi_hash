@@ -12,3 +12,17 @@ python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>
 
 Recommendations:
 Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path.
+
+
+
+Inputs,Process,Outputs:
+MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
+# input: path to file as string, optional unbuffered read size
+# pre: file is readable, MEBIBYTES defined
+# process:
+#   open gvmi image
+#   on each chunk
+#       add to hasher
+# output: hash as string
+# post: none
+# notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
