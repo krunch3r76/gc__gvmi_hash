@@ -40,6 +40,7 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 #   open gvmi image
 #   on each chunk
 #       add to hasher
+#   query hasher
 # output: hash as string
 # post: none
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
