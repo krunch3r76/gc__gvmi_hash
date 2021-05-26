@@ -4,6 +4,8 @@ The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had 
 
 The logic closely follows that from the python package gvmkit-build (which is installed normally via pip in the Python virtual environment) in the repo.py file (viz def upload_image). The code from which this has been adapted may be viewed in the tarbell via https://pypi.org/project/gvmkit-build/#files.
 
+Note: to understand what problem this script solves, it is recommended the reader follow the Provider flash (Python) tutorial at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development.
+
 Usage:
 ```
 git clone https://github.com/krunch3r76/gc__gvmi_hash.git
