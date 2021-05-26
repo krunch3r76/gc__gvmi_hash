@@ -6,7 +6,7 @@ import hashlib
 import os
 
 MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
-# input: path to file as string, optional unbuffered read size
+# input: path to file as string
 # pre: file is readable, MEBIBYTES defined
 # process:
 #   open gvmi image
