@@ -5,8 +5,9 @@ The provided script solves the problem where a Requestor had published the vm (g
 The logic closely follows the logic from the python package gvmkit-build (which is installed normally via pip in the Python virtual environment) in the repo.py file (viz def upload_image). The code from which this has been adapted may be viewed in the tarbell via https://pypi.org/project/gvmkit-build/#files.
 
 Usage:
-git clone REPOADDRESS
-`python3 gvmi_image_hash/gvmi_image_hash.py <gvmi-image>`
+git clone https://github.com/krunch3r76/gc__gvmi_hash.git
+
+`python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>`
 
 
 Recommendations:
