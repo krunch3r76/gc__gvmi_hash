@@ -14,7 +14,7 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 # output: hash as string
 # post: none
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
-def gvmi_image_hash(filename: str):
+def gc__gvmi_hash(filename: str): # gc for golem community
     MAXCHUNK=8*MEBIBYTES # few read()'s on a e.g. 40MiB image, reasonable mem requirement of 8MiB...
     try:
         with open(thefilename, "rb", buffering=False) as raw_binary_file_obj: # io.FileIO
@@ -42,4 +42,4 @@ if __name__ == "__main__":
         exit(1)
     thefilename=sys.argv[1]
     test=io.StringIO()
-    print(gvmi_image_hash(thefilename))
+    print(gc__gvmi_hash(thefilename))
