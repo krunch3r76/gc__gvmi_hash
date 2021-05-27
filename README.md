@@ -2,17 +2,11 @@
 Summary: computes the hash of a gvmi image file. 
 
 Problem:
-A Requestor is required to provide the hash of the gvmi image pushed to the Golem network repo in its requestor script. However, this key is only printed once after pushing the image and verifying the script has been updated with the correct key is neither currently documented nor facilitated with the executables provided by the gvmkit-build Python package.
+A Requestor is required to provide the hash of the gvmi image pushed to the Golem network repo in its requestor script. However, the hash is printed only once after pushing the image. If more than one image has been pushed, it may be necessary to verify the script has been updated with the correct image hash. Neither the specific hashing algorithm used (sha3-224) nor a means to rehash is currently provided by either instructions in the documentation or tools within the gvimkit-build Python package.
 
-The provided gv__gvmi_hash.py solves this problem by hashing the input image file on demand with no additional dependencies than that already satisfied by the provider installation -- namely the Python Standard Library + OpenSSL libraries.
+The provided gv__gvmi_hash.py solves this problem by hashing the input image file using the same algorithm as, and with no additional runtime dependencies than those already satisfied by, the requestor installation -- namely the Python Standard Library + OpenSSL libraries. Note, the script is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>` on systems where openssl executables have been installed.
 
 --Note: to understand better what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
-
-
-Credits:
-Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
-
-
 
 Usage:
 ```
@@ -26,6 +20,13 @@ Example:
 SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
 SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 ```
+
+Credits:
+Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
+
+
+
+
 
 Recommendations:
 Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
