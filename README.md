@@ -2,7 +2,7 @@
 Summary: computes the hash of a gvmi image file. 
 
 Problem:
-The gvmi-kit Python package/script outputs the hash of a gvmi image only during its push operation. However, a Requestor is required to provide the pushed image hash in its requestor script, and if lost, has no means provided by gvmi-kit to re-output the image hash. Further, the current Golem documentation neither specifies the hashing algorithm used (sha3-224) nor a suggests tool for recomputation.
+The gvmi-kit Python package/script outputs the hash of a gvmi image only during its push operation. However, a Requestor is required to provide the pushed image hash in its requestor script, and if lost, has no means provided by gvmi-kit to re-output the image hash. Further, the current Golem documentation neither specifies the hashing algorithm used (sha3-224) nor suggests a tool for recomputation.
 
 The supplied gv__gvmi_hash.py solves a lost hash problem by hashing the input image file using the same algorithm as, and with no additional runtime dependencies than those already satisfied by, the gvmi-kit package -- namely the Python Standard Library + OpenSSL libraries. Note, the script is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>` on systems where openssl executables have been installed. The reader is encouraged to see the code in gvmkit-build itself (viz Credits) to be assured that the hashing algorithm is consistent.
 
