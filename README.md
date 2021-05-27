@@ -52,6 +52,6 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 ```
 
 Reflections:
-The code can be reduced to just a few lines if the image is slurped into memory in one gulp as opposed to "chunking." However, without delving into the details of the OpenSSL hash algorithm, it reduces memory usage by never storing in memory at most two copies of the entire VM image at one time. Furthermore, OpenSSL could be calculating the hash based on a previous state per chunk and discarding prior chunks, or may do so in the future. An inspection of the OpenSSL code could validate this or future revisions could become more efficient at chunking. Therefore, reduced memory complexity from chunking should offer cost-savings on virtual servers and more efficient processing on other memory constrained devices.
+The code can be reduced to just a few lines if the image is slurped into memory in one gulp as opposed to "chunking." However, it reduces memory usage by never storing in memory at most two copies of the entire VM image at one time. Furthermore, OpenSSL could be calculating the hash based on a previous state per chunk and discarding prior chunks, or may do so in the future. Therefore, reduced memory complexity from chunking offers cost-savings and performance benefits on memory constrained virtual servers or devices, and nominal read operation costs on any system.
 
 TODO: move MEBIBYTES definition inside of function
