@@ -1,13 +1,13 @@
 # gc__gvmi_hash
 Summary: computes the hash of a gvmi image file. 
 
-The provided script (gc__gvmi_hash.py) solves the problem where a Requestor had published the golem vm image (gvmi) but the key has been lost, or the Requestor has become uncertain that a key in question corresponds to the image at hand.
+Problem:
+A Requestor is required to provide the hash of the gvmi image pushed to the Golem network repo in its requestor script. However, this key is only printed once after pushing the image and verifying the script has been updated with the correct key is neither currently documented nor facilitated with the executables provided by the gvmkit-build Python package.
 
-Further, as it is not clearly documented or advertised which hashing algorithm the Golem network uses, it provides a domain specific solution.
+The provided gv__gvmi_hash.py solves this problem by hashing the input image file on demand with no additional dependencies than that already satisfied by the provider installation -- namely the Python Standard Library + OpenSSL libraries.
 
---Note: to understand what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
+--Note: to understand better what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
-While the hash algorithm is simply the sha3_224 hash of the image, this hashing function is not ubiquitously available from shells at the time of this writing -- that said, it is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>`. The problem is solved here without OpenSSL executables or any other such runtime dependency or library/module apart from the pre-requisite libraries for running yagna (Python Standard Library + OpenSSL libraries).
 
 Credits:
 Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image).
