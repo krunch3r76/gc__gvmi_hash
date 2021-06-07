@@ -37,7 +37,7 @@ def __check_for_hash_link(image_hash: str, verbose=False):
             EC=1
         except urllib.error.URLError:
             EC=1
-            print("Could not communicate with respository to check hash link. Check connectivity", file=sys.stderr)
+            print("Could not communicate with repository to check hash link. Check connectivity", file=sys.stderr)
             break
         if EC == 0:
             break
