@@ -24,9 +24,10 @@ def __check_for_hash_link(image_hash: str, verbose=False):
     urls_to_try = ['yacn2.dev.golem.network:8000']
     for url in urls_to_try:
         if verbose:
-            print(f"\ntrying {url}")
+            print(f"\nconnecting to {url}")
         url=f"http://yacn2.dev.golem.network:8000/image.{image_hash}.link"
         if verbose:
+            print(f"\nCONNECTED!")
             print(f"sending HTTP HEAD request for {url}\n")
         req=urllib.request.Request(url, method="HEAD")
         res :http.client.HTTPResponse = None
@@ -86,9 +87,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="description")
     image_hash :str = None
     parser.add_argument('--check-hash-link', type=str, help='the sha3-224 hash of the gvmi to check for')
+    parser.add_argument('--check-hash-link-stdin', action='store_true')
+    parser.add_argument('-v', '--verbose', help="increase output verbosity", action="store_true")
+#    parser.add_argument('infile', nargs='?', type=argparse.FileType('r'), default=sys.stdin)
     args, gvmis = parser.parse_known_args()
+    if args.check_hash_link_stdin:
+        temp=sys.stdin.read().strip()
+        args.check_hash_link=temp
     if args.check_hash_link:
-        EC=__check_for_hash_link(args.check_hash_link)
+        EC=__check_for_hash_link(args.check_hash_link, args.verbose)
         if EC == 0:
             print("The link exists on the central repository.")
         else:
