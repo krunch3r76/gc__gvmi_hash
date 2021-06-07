@@ -43,6 +43,8 @@ Adapted from the source code in the Python package gvmkit-build, which is viewab
 Recommendations:
 Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
 
+Using the extra functionality requires network connectivity. The routine is short and can be quickly audited for peace of mind in the context of security concerns. viz (__check_for_hash_link in gc__gvmi_has.py)
+
 TODO: provide hints on adding community scripts into the Python venv instead.
 
 
