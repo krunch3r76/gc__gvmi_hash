@@ -46,7 +46,7 @@ def __check_for_hash_link(image_hash: str, verbose=False):
 
 
 
-MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
+
 # input: path to file as string
 # pre: file is readable, MEBIBYTES defined
 # process:
@@ -57,6 +57,7 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 # post: none
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
 def gc__gvmi_hash(filename: str): # gc for golem community
+    MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
     MAXCHUNK=8*MEBIBYTES # few read()'s on a e.g. 40MiB image, reasonable mem requirement of 8MiB...
     hash_hex=""
     try:
@@ -89,7 +90,7 @@ if __name__ == "__main__":
     parser.add_argument('--check-hash-link', type=str, help='the sha3-224 hash of the gvmi to check for')
     parser.add_argument('--check-hash-link-stdin', action='store_true')
     parser.add_argument('-v', '--verbose', help="increase output verbosity", action="store_true")
-#    parser.add_argument('infile', nargs='?', type=argparse.FileType('r'), default=sys.stdin)
+
     args, gvmis = parser.parse_known_args()
     if args.check_hash_link_stdin:
         temp=sys.stdin.read().strip()
