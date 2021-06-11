@@ -11,17 +11,19 @@ python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>
 
 Example:
 ```
-(cracker-venv) krunch3r@crystalcavern:~/hash-cracker$ python3 gc__gvmi_hash/gc__gvmi_hash.py *.gvmi
+alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
+(cracker-venv) krunch3r@crystalcavern:~/hash-cracker$ gvmi_hash *.gvmi
 SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
 SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 ```
 
 Extra Usage:
 ```
-gc__gvmi_hash.py --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
+alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
+gvmi_hash --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 The link exists on the central repository.
 
-gc__gvmi_hash.py docker-hash-cracker-latest-e93d21fba0.gvmi | cut -f2 -d ' ' | gc__gvmi_hash.py --check-hash-link-stdin
+gvmi_hash docker-hash-cracker-latest-e93d21fba0.gvmi | cut -f2 -d ' ' | gvmi_hash --check-hash-link-stdin
 The link exists on the central repository.
 ```
 
@@ -32,21 +34,16 @@ The supplied gv__gvmi_hash.py solves a lost hash problem by hashing the input im
 
 --Note: to understand better what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
+NOTE:
+The script's extra functionality (viz Extra Usage) to query the repo for the hash link makes an outside network connection. The routine is safe (HTTP/1.1 HEAD request), short, and can be quickly audited for peace of mind in the context of security concerns. viz (__check_for_hash_link in gc__gvmi_has.py)
+
 
 Credits:
 Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image). Formatting of output should be credited to openssl.org.
 
 
-
-
-
 Recommendations:
 Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
-
-Using the extra functionality requires network connectivity. The routine is short and can be quickly audited for peace of mind in the context of security concerns. viz (__check_for_hash_link in gc__gvmi_has.py)
-
-TODO: provide hints on adding community scripts into the Python venv instead.
-
 
 
 primary function inputs,process,and outputs:
@@ -64,5 +61,3 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 # post: none
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
 ```
-
-TODO: move MEBIBYTES definition inside of function
