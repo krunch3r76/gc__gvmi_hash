@@ -4,6 +4,7 @@ import sys
 import io
 import hashlib
 import os
+import glob
 
 # for __check_for_hash_link
 import urllib.request
@@ -106,6 +107,11 @@ if __name__ == "__main__":
                         help="increase output verbosity", action="store_true")
 
     args, gvmis = parser.parse_known_args()
+    for i in range(len(gvmis)):
+        if '*' in gvmis[i]:
+            globbed_list=glob.glob(gvmis[i])
+            gvmis[i]=" ".join(globbed_list)
+
     if args.check_hash_link_stdin:
         temp = sys.stdin.read().strip()
         args.check_hash_link = temp
