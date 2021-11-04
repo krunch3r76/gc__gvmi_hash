@@ -10,7 +10,7 @@ python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>
 ```
 
 Example:
-```
+```bash
 alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
 # PowerShell: $gvmi_hash="${PWD}\gc__gvmi_hash\gc__gvmi_hash.py" then python3 $gvmi_hash <image-file>
 (cracker-venv) krunch3r@crystalcavern:~/hash-cracker$ gvmi_hash *.gvmi
@@ -19,7 +19,7 @@ SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed26
 ```
 
 Extra Usage:
-```
+```bash
 alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
 gvmi_hash --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 The link exists on the central repository.
@@ -48,7 +48,7 @@ Consider placing community scripts such as this in $HOME/.local/bin/golem-commun
 
 
 primary function inputs,process,and outputs:
-```
+```python
 def gc__gvmi_hash(filename: str): # gc for golem community
 MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
 # input: path to file as string
