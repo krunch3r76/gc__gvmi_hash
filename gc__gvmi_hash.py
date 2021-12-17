@@ -26,7 +26,9 @@ import argparse
 # post: stdout log on verbose setting, application termination 
 def __check_for_hash_link(image_hash: str, verbose=False):
     EC = 0
-    authorities_to_try = ['yacn2.dev.golem.network:8000']
+    # authorities_to_try = ['yacn2.dev.golem.network:8000']
+    authorities_to_try = ['girepo.dev.golem.network:8000']
+    
     for authority in authorities_to_try:
         EC = 0
         url = f"http://{authority}/image.{image_hash}.link"
