@@ -65,4 +65,4 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 
 # Additional:
 
-a simple command line tool and call may be preferred is extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
+a simple command line tool and call may be preferred if extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
