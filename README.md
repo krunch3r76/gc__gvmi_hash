@@ -1,6 +1,6 @@
 # gc__gvmi_hash
 Summary: computes the hash of a gvmi image file. 
-Extra: optionally queries the Golem network to see if the hash link has been created
+Extra: optionally queries the Golem network to confirm that gvmi image is available from golem's central repository (i.e. to see if the hash link has been created)
 
 
 Usage:
@@ -62,3 +62,6 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 # post: none
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
 ```
+
+additional resources:
+a simple command line tool and call may be preferred is extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
