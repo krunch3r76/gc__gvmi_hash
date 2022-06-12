@@ -40,20 +40,22 @@ somewhere > . $profile
 cracker-venv > python $gvmi_hash docker-hash-cracker-latest-363b2e9df2.gvmi
 ```
 
-# Extra Usage:
+# Extra Usage (Linux):
 ```bash
-alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
-gvmi_hash --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
+$ alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
+$ gvmi_hash --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 The link exists on the central repository.
 
-gvmi_hash docker-hash-cracker-latest-e93d21fba0.gvmi | cut -f2 -d ' ' | gvmi_hash --check-hash-link-stdin
+$ gvmi_hash docker-hash-cracker-latest-e93d21fba0.gvmi | cut -f2 -d ' ' | gvmi_hash --check-hash-link-stdin
 The link exists on the central repository.
 ```
 
 # Problem:
 The gvmkit-build Python package/script outputs the hash of a gvmi image only after its initial push operation. However, a Requestor is required to provide the pushed image hash in its requestor script, and if lost, has no means provided by gvmkit-build to re-output the image hash. Additionally, the current Golem documentation neither specifies the hashing algorithm used (sha3-224) nor suggests a tool for recomputation.
 
-The supplied gv__gvmi_hash.py solves a lost hash problem by hashing the input image file using the same algorithm as, and with no additional runtime dependencies than those already satisfied by, the gvmkit-build package -- namely the Python Standard Library + OpenSSL libraries. Note, the script is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>` on systems where openssl executables have been installed. Also, the hash algorithm is indeed SHA3-224 and the reader is encouraged to see the code in gvmkit-build itself (viz Credits) to convince oneself of this.
+The supplied gv__gvmi_hash.py solves a lost hash problem by hashing the input image file using the same algorithm as, and with no additional runtime dependencies than those already satisfied by, the gvmkit-build package -- namely the Python Standard Library + OpenSSL libraries.
+
+Note, the script is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>` on systems where openssl executables have been installed. Also, the hash algorithm is indeed SHA3-224 and the reader is encouraged to see the code in gvmkit-build itself (viz Credits) to convince oneself of this.
 
 --Note: to understand better what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
@@ -89,4 +91,4 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 ```
 
 # Alternatives:
-a simple command line tool and call may be preferred if extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
+Besides the openssl dgst command mentioned in the problem statement, a simple command line tool and call may be preferred if extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
