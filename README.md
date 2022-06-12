@@ -9,13 +9,36 @@ git clone https://github.com/krunch3r76/gc__gvmi_hash.git
 python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>
 ```
 
-# Example:
+## Example:BASH
 ```bash
-alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
-# PowerShell: $gvmi_hash="${PWD}\gc__gvmi_hash\gc__gvmi_hash.py" then python3 $gvmi_hash <image-file>
-(cracker-venv) krunch3r@crystalcavern:~/hash-cracker$ gvmi_hash *.gvmi
+(cracker-venv)$ git clone https://github.com/krunch3r76/gc__gvmi_hash.git
+(cracker-venv)$ alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
+(cracker-venv)$ krunch3r@crystalcavern:~/hash-cracker$ gvmi_hash *.gvmi
 SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
 SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
+```
+
+## Example:Powershell
+```powershell
+cracker-venv > git clone https://github.com/krunch3r76/gc__gvmi_hash.git
+cracker-venv > $gvmi_hash="${PWD}\gc__gvmi_hash\gc__gvmi_hash.py"
+cracker-venv > python $gvmi_hash docker-hash-cracker-latest-363b2e9df2.gvmi
+SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
+```
+
+### Example:Powershell: alternatively edit $PROFILE
+set $gvmi_hash to absolute path to\gc__gvmi_hash\gc__gvmi_hash.py
+
+example $profile
+```
+oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/space.omp.json | Invoke-Expression
+$gvmi_hash="C:\Users\krunch3r\golem\gc__gvmi_hash\gc__gvmi_hash.py"
+$env:PATH += ";C:\Users\krunch3r\golem\gc__gvmi_hash"
+```
+
+```powershell
+somewhere > . $profile
+cracker-venv > python $gvmi_hash 
 ```
 
 # Extra Usage:
