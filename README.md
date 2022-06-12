@@ -38,7 +38,7 @@ $env:PATH += ";C:\Users\krunch3r\golem\gc__gvmi_hash"
 
 ```powershell
 somewhere > . $profile
-cracker-venv > python $gvmi_hash 
+cracker-venv > python $gvmi_hash docker-hash-cracker-latest-363b2e9df2.gvmi
 ```
 
 # Extra Usage:
