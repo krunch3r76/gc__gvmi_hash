@@ -38,6 +38,7 @@ $gvmi_hash="C:\Users\krunch3r\golem\gc__gvmi_hash\gc__gvmi_hash.py"
 ```powershell
 somewhere > . $profile
 cracker-venv > python $gvmi_hash docker-hash-cracker-latest-363b2e9df2.gvmi
+SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
 ```
 
 # Extra Usage (Linux):
