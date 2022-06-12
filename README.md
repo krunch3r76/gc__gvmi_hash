@@ -65,11 +65,14 @@ The script's extra functionality (viz Extra Usage) to query the repo for the has
 Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image). Formatting of output should be credited to openssl.org.
 
 
-# Recommendations:
-Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
+# Tips:
+Consider placing community scripts on linux such as this in $HOME/.local/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
 
 
-primary function inputs,process,and outputs:
+
+# Additional:
+
+## primary function inputs,process,and outputs:
 ```python
 def gc__gvmi_hash(filename: str): # gc for golem community
 MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
@@ -85,6 +88,5 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
 ```
 
-# Additional:
-
+# Alternatives:
 a simple command line tool and call may be preferred if extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
