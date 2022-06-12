@@ -33,7 +33,6 @@ example $profile
 ```
 oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/space.omp.json | Invoke-Expression
 $gvmi_hash="C:\Users\krunch3r\golem\gc__gvmi_hash\gc__gvmi_hash.py"
-$env:PATH += ";C:\Users\krunch3r\golem\gc__gvmi_hash"
 ```
 
 ```powershell
