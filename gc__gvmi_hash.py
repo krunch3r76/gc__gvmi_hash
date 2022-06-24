@@ -111,8 +111,7 @@ if __name__ == "__main__":
     args, gvmis = parser.parse_known_args()
     for i in range(len(gvmis)):
         if '*' in gvmis[i]:
-            globbed_list=glob.glob(gvmis[i])
-            gvmis[i]=" ".join(globbed_list)
+            gvmis=glob.glob(gvmis[i])
 
     if args.check_hash_link_stdin:
         temp = sys.stdin.read().strip()
