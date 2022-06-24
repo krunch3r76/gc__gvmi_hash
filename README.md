@@ -9,29 +9,54 @@ git clone https://github.com/krunch3r76/gc__gvmi_hash.git
 python3 gc__gvmi_hash/gc__gvmi_hash.py <gvmi-image>
 ```
 
-# Example:
+## Example:BASH
 ```bash
-alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
-# PowerShell: $gvmi_hash="${PWD}\gc__gvmi_hash\gc__gvmi_hash.py" then python3 $gvmi_hash <image-file>
-(cracker-venv) krunch3r@crystalcavern:~/hash-cracker$ gvmi_hash *.gvmi
+(cracker-venv)$ git clone https://github.com/krunch3r76/gc__gvmi_hash.git
+(cracker-venv)$ alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
+(cracker-venv)$ krunch3r@crystalcavern:~/hash-cracker$ gvmi_hash *.gvmi
 SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
 SHA3-224(docker-hash-cracker-latest-e93d21fba0.gvmi)= 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 ```
 
-# Extra Usage:
+## Example:Powershell
+```powershell
+cracker-venv > git clone https://github.com/krunch3r76/gc__gvmi_hash.git
+cracker-venv > $gvmi_hash="${PWD}\gc__gvmi_hash\gc__gvmi_hash.py"
+cracker-venv > python $gvmi_hash docker-hash-cracker-latest-363b2e9df2.gvmi
+SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
+```
+
+### Example:Powershell: alternatively edit $PROFILE
+set $gvmi_hash to absolute path to\gc__gvmi_hash\gc__gvmi_hash.py
+
+example $profile
+```
+oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/space.omp.json | Invoke-Expression
+$gvmi_hash="C:\Users\krunch3r\golem\gc__gvmi_hash\gc__gvmi_hash.py"
+```
+
+```powershell
+somewhere > . $profile
+cracker-venv > python $gvmi_hash docker-hash-cracker-latest-363b2e9df2.gvmi
+SHA3-224(docker-hash-cracker-latest-363b2e9df2.gvmi)= e1a95ab266977b857ae1c59942ebc7384a72359840b452c2e5293737
+```
+
+# Extra Usage (Linux):
 ```bash
-alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
-gvmi_hash --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
+$ alias gvmi_hash="python3 $PWD/gc__gvmi_hash/gc__gvmi_hash.py" #BASH alias
+$ gvmi_hash --check-hash-link 4c9778760794a5fa6b8461ed2654c09cbc20f16edd3ec687c3289db8
 The link exists on the central repository.
 
-gvmi_hash docker-hash-cracker-latest-e93d21fba0.gvmi | cut -f2 -d ' ' | gvmi_hash --check-hash-link-stdin
+$ gvmi_hash docker-hash-cracker-latest-e93d21fba0.gvmi | cut -f2 -d ' ' | gvmi_hash --check-hash-link-stdin
 The link exists on the central repository.
 ```
 
 # Problem:
 The gvmkit-build Python package/script outputs the hash of a gvmi image only after its initial push operation. However, a Requestor is required to provide the pushed image hash in its requestor script, and if lost, has no means provided by gvmkit-build to re-output the image hash. Additionally, the current Golem documentation neither specifies the hashing algorithm used (sha3-224) nor suggests a tool for recomputation.
 
-The supplied gv__gvmi_hash.py solves a lost hash problem by hashing the input image file using the same algorithm as, and with no additional runtime dependencies than those already satisfied by, the gvmkit-build package -- namely the Python Standard Library + OpenSSL libraries. Note, the script is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>` on systems where openssl executables have been installed. Also, the hash algorithm is indeed SHA3-224 and the reader is encouraged to see the code in gvmkit-build itself (viz Credits) to convince oneself of this.
+The supplied gv__gvmi_hash.py solves a lost hash problem by hashing the input image file using the same algorithm as, and with no additional runtime dependencies than those already satisfied by, the gvmkit-build package -- namely the Python Standard Library + OpenSSL libraries.
+
+Note, the script is equivalent to invoking `openssl dgst -sha3-224 <gvmi-image>` on systems where openssl executables have been installed. Also, the hash algorithm is indeed SHA3-224 and the reader is encouraged to see the code in gvmkit-build itself (viz Credits) to convince oneself of this.
 
 --Note: to understand better what problem this script solves, it is recommended the reader follow the Provider Flash Tutorial (Python) at https://handbook.golem.network/requestor-tutorials/flash-tutorial-of-requestor-development. --
 
@@ -43,11 +68,14 @@ The script's extra functionality (viz Extra Usage) to query the repo for the has
 Adapted from the source code in the Python package gvmkit-build, which is viewable in the tarbell via https://pypi.org/project/gvmkit-build/#files (file: repo.py, function: upload_image). Formatting of output should be credited to openssl.org.
 
 
-# Recommendations:
-Consider placing community scripts such as this in $HOME/.local/bin/golem-community or $env:UserProfile/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
+# Tips:
+Consider placing community scripts on linux such as this in $HOME/.local/bin/golem-community and adding it to your path. You may also consider adding said community scripts path to the environment variable PYTHONPATH and calling from gc__gvmi_hash import gc__gvmi_hash in order to utilize the function from within scripts, e.g. requestor.py.
 
 
-primary function inputs,process,and outputs:
+
+# Additional:
+
+## primary function inputs,process,and outputs:
 ```python
 def gc__gvmi_hash(filename: str): # gc for golem community
 MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
@@ -63,6 +91,5 @@ MEBIBYTES=1024*1024 # one mebibyte ie megabyte, always a multiple of typical blo
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
 ```
 
-# Additional:
-
-a simple command line tool and call may be preferred if extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
+# Alternatives:
+Besides the openssl dgst command mentioned in the problem statement, a simple command line tool and call may be preferred if extra features of gc__gvmi_hash are not needed. See https://handbook.golem.network/requestor-tutorials/vm-runtime/self-hosted-vm-images for details.
