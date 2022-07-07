@@ -69,7 +69,17 @@ def __check_for_hash_link(image_hash: str, verbose=False):
 # output: hash as string
 # post: none
 # notes: additional details of the hashlib implementation may be discoverable via https://www.openssl.org/docs/manmaster/man3/EVP_DigestInit.html
-def gc__gvmi_hash(filename: str):  # gc for golem community
+def gc__gvmi_hash(filename = None):  # gc for golem community
+    files = os.listdir(os.curdir)
+    mtime = 0
+    if (filename == None):
+        for file in files:
+            if file.endswith('.gvmi'):
+                if (os.path.getmtime(file) > mtime):
+                    mtime = os.path.getmtime(file)
+                    filename = file
+    else:
+        filename = str(filename)
     # one mebibyte ie megabyte, always a multiple of typical block sizes 4096,8192
     MEBIBYTES = 1024*1024
     # few read()'s on a e.g. 40MiB image, reasonable mem requirement of 8MiB...
